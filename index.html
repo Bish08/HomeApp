@@ -266,7 +266,7 @@ function esc(s) {
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 function monthExp(m) { 
-  return S.expenses.filter(e=>e.date.startsWith(m) && !e.isYearly);
+  return S.expenses.filter(e=>e.date.startsWith(m));
 }
 function monthTotal(m) { return monthExp(m).reduce((s,e)=>s+e.amount,0); }
 function catTotal(m,cid) { return monthExp(m).filter(e=>e.category===cid).reduce((s,e)=>s+e.amount,0); }
