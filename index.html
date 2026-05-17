@@ -196,7 +196,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
       Summary
     </button>
     <button class="tab" data-t="settings" onclick="go('settings')">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2h-.5a2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2v-.5a2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2h.5a2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.5a1.65 1.65 0 0 0 1.51 1h.09a2 2 0 0 1 2 2v.5a2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.05a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.05a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.05a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.05a1.65 1.65 0 0 0-1.51 1 1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33H15a1.65 1.65 0 0 0-1 1.51v.05a2 2 0 0 1-2 2z"/></svg>
       Settings
     </button>
   </div>
@@ -265,7 +265,9 @@ function uid() { return (crypto.randomUUID?crypto.randomUUID():Math.random().toS
 function esc(s) {
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
-function monthExp(m) { return S.expenses.filter(e=>e.date.startsWith(m)); }
+function monthExp(m) { 
+  return S.expenses.filter(e=>e.date.startsWith(m) && !e.isYearly);
+}
 function monthTotal(m) { return monthExp(m).reduce((s,e)=>s+e.amount,0); }
 function catTotal(m,cid) { return monthExp(m).filter(e=>e.category===cid).reduce((s,e)=>s+e.amount,0); }
 
@@ -397,7 +399,7 @@ function renderExp() {
     }
 
     for (const e of items) {
-      const recIcon = e.isRecurring?'<span class="rec-badge">🔁</span>':e.isYearly?'<span class="rec-badge" title="Yearly">📅</span>':e.recurringSourceId?'<span class="rec-copy" title="Auto-recurring">↩</span>':'';
+      const recIcon = e.isRecurring?'<span class="rec-badge">🔁</span>':e.isYearly?'<span class="rec-badge" title="Yearly">📅</span>':e.recurringSourceId?'<span class="rec-copy" title="Auto-recurring">🔄</span>':'';
       h += `<div class="exp-row">
         <div class="exp-icon" style="background:${c.bg}">${c.em}</div>
         <div class="exp-info">
