@@ -33,7 +33,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
   border-top:0.5px solid var(--border);
   display:flex;z-index:200
 }
-.tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:none;background:none;cursor:pointer;color:var(--gray);font-size:10px;font-weight:500;padding-top:6px}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:none;background:none;cursor:pointer;color:var(--gray);font-size:10px;font-weight:500;padding:0}
 .tab svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .tab.on{color:var(--blue)}
 
@@ -130,7 +130,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
 
 /* Category grid */
 .cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 16px;margin-bottom:18px}
-.cat-opt{display:flex;align-items:center;gap:9px;padding:11px 13px;background:var(--card);border-radius:13px;cursor:pointer;border:2px solid transparent;transition:border-color .15s,background .15s}
+.cat-opt{display:flex;align-items:center;gap:9px;padding:11px 13px;background:var(--card);border-radius:13px;cursor:pointer;border:2px solid transparent;transition:border-color .15s,background .1s}
 .cat-opt.sel{border-color:var(--blue);background:rgba(0,122,255,0.07)}
 .cat-em{font-size:20px;line-height:1}
 .cat-nm{font-size:13px;font-weight:500;line-height:1.25;color:var(--text)}
@@ -196,7 +196,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
       Summary
     </button>
     <button class="tab" data-t="settings" onclick="go('settings')">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2h-.5a2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2v-.5a2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2h.5a2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.5a1.65 1.65 0 0 0 1.51 1h.09a2 2 0 0 1 2 2v.5a2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
       Settings
     </button>
   </div>
@@ -217,6 +217,7 @@ const CATS = [
   {id:'entertain',   name:'Entertainment',   em:'📺', color:'#0D9488', bg:'#F0FDFA'},
   {id:'clothing',    name:'Clothing',        em:'👕', color:'#78716C', bg:'#FAFAF9'},
   {id:'savings',     name:'Savings',         em:'💵', color:'#059669', bg:'#ECFDF5'},
+  {id:'travelling',  name:'Travelling',      em:'✈️', color:'#F59E0B', bg:'#FFFAEB'},
   {id:'other',       name:'Other',           em:'⚙️', color:'#6B7280', bg:'#F9FAFB'},
 ];
 const cat = id => CATS.find(c=>c.id===id) || CATS[CATS.length-1];
@@ -271,17 +272,33 @@ function catTotal(m,cid) { return monthExp(m).filter(e=>e.category===cid).reduce
 // ─── RECURRING ──────────────────────────────────────────────
 function ensureRecurring() {
   const m = S.month;
-  const templates = S.expenses.filter(e=>e.isRecurring && !e.recurringSourceId);
+  const templates = S.expenses.filter(e=>(e.isRecurring || e.isYearly) && !e.recurringSourceId);
   let changed = false;
   for (const t of templates) {
     const tmplM = t.date.slice(0,7);
     if (m <= tmplM) continue;
-    const exists = S.expenses.some(e=>e.recurringSourceId===t.id && e.date.startsWith(m));
-    if (exists) continue;
+    
+    // Check if it's a yearly expense
+    if (t.isYearly) {
+      const tmplYear = t.date.slice(0,4);
+      const currYear = m.slice(0,4);
+      const tmplMonth = t.date.slice(5,7);
+      const currMonth = m.slice(5,7);
+      
+      // Only create yearly expense once per year (same month)
+      if (currMonth !== tmplMonth) continue;
+      const yearExists = S.expenses.some(e=>e.recurringSourceId===t.id && e.date.slice(0,4)===currYear);
+      if (yearExists) continue;
+    } else {
+      // Regular monthly recurring
+      const exists = S.expenses.some(e=>e.recurringSourceId===t.id && e.date.startsWith(m));
+      if (exists) continue;
+    }
+    
     const day = t.date.slice(8,10);
     S.expenses.push({
       id:uid(), title:t.title, amount:t.amount, category:t.category,
-      date:`${m}-${day}`, note:t.note, isRecurring:false, recurringSourceId:t.id
+      date:`${m}-${day}`, note:t.note, isRecurring:false, isYearly:false, recurringSourceId:t.id
     });
     changed = true;
   }
@@ -380,7 +397,7 @@ function renderExp() {
     }
 
     for (const e of items) {
-      const recIcon = e.isRecurring?'<span class="rec-badge">🔁</span>':e.recurringSourceId?'<span class="rec-copy" title="Auto-recurring">↩</span>':'';
+      const recIcon = e.isRecurring?'<span class="rec-badge">🔁</span>':e.isYearly?'<span class="rec-badge" title="Yearly">📅</span>':e.recurringSourceId?'<span class="rec-copy" title="Auto-recurring">↩</span>':'';
       h += `<div class="exp-row">
         <div class="exp-icon" style="background:${c.bg}">${c.em}</div>
         <div class="exp-info">
@@ -517,7 +534,7 @@ function renderSum() {
 
 // ─── SETTINGS TAB ───────────────────────────────────────────
 function renderSet() {
-  const templates = S.expenses.filter(e=>e.isRecurring&&!e.recurringSourceId);
+  const templates = S.expenses.filter(e=>(e.isRecurring || e.isYearly)&&!e.recurringSourceId);
 
   let h = `<div class="nav"><h1>Settings</h1></div>`;
 
@@ -541,16 +558,17 @@ function renderSet() {
     <div class="section-title">Recurring Expenses (${templates.length})</div>
     <div class="card">`;
   if (!templates.length) {
-    h += `<div class="row" style="color:var(--subtext);font-size:14px">No recurring expenses yet. Toggle "Recurring Monthly" when adding an expense.</div>`;
+    h += `<div class="row" style="color:var(--subtext);font-size:14px">No recurring expenses yet. Toggle "Recurring" when adding an expense.</div>`;
   } else {
     for (const t of templates) {
       const c = cat(t.category);
+      const freq = t.isYearly ? 'year' : 'month';
       h += `<div class="row" style="justify-content:space-between">
         <div style="display:flex;align-items:center;gap:10px">
           <div class="cat-head-ico" style="background:${c.bg}">${c.em}</div>
           <div>
             <div style="font-size:15px;font-weight:500">${esc(t.title)}</div>
-            <div style="font-size:12px;color:var(--subtext)">${c.name} · ${fmtMoney(t.amount)}/mo</div>
+            <div style="font-size:12px;color:var(--subtext)">${c.name} · ${fmtMoney(t.amount)}/${freq}</div>
           </div>
         </div>
         <button onclick="stopRec('${t.id}')"
@@ -580,7 +598,7 @@ function renderSet() {
     </div>
   </div>
   <div style="text-align:center;padding:24px 16px;color:var(--subtext);font-size:13px">
-    My House Expenses • v2.0<br>
+    My House Expenses • v2.1<br>
     <span style="font-size:11px">Tap Share → Add to Home Screen</span>
   </div>`;
 
@@ -600,7 +618,7 @@ function openAdd() {
   if (!isCurr(S.month)) {
     defDate = S.month + '-01';
   }
-  showModal({title:'',amount:'',category:'other',date:defDate,note:'',isRecurring:false});
+  showModal({title:'',amount:'',category:'other',date:defDate,note:'',isRecurring:false,isYearly:false});
 }
 
 function openEdit(id) {
@@ -667,6 +685,15 @@ function showModal(d) {
           <input type="checkbox" class="toggle" id="mi-r" ${d.isRecurring?'checked':''} ${isCopy?'disabled':''}>
         </div>
       </div>
+      <div class="f-card" style="margin-top:12px;${isCopy?'opacity:.5;pointer-events:none;':''}">
+        <div class="f-row">
+          <div style="flex:1">
+            <div style="font-size:16px;font-weight:500">Recurring Yearly 📅</div>
+            <div style="font-size:12px;color:var(--subtext);margin-top:2px">Auto-add same month every year</div>
+          </div>
+          <input type="checkbox" class="toggle" id="mi-y" ${d.isYearly?'checked':''} ${isCopy?'disabled':''}>
+        </div>
+      </div>
       ${isCopy?'<div style="font-size:12px;color:var(--subtext);margin-top:6px;padding:0 4px">Auto-generated copy — edit the original to change the template.</div>':''}
     </div>
   </div>`;
@@ -694,6 +721,7 @@ function saveExp() {
   const date   = document.getElementById('mi-d').value;
   const note   = document.getElementById('mi-n').value.trim();
   const isRec  = document.getElementById('mi-r').checked;
+  const isYearly = document.getElementById('mi-y').checked;
 
   if (!title||isNaN(amount)||amount<=0||!date) {
     alert('Please fill in Title, Amount and Date.'); return;
@@ -701,9 +729,9 @@ function saveExp() {
 
   if (_editId) {
     const e = S.expenses.find(x=>x.id===_editId);
-    if (e) Object.assign(e,{title,amount,date,note,isRecurring:isRec,category:_selCat});
+    if (e) Object.assign(e,{title,amount,date,note,isRecurring:isRec,isYearly:isYearly,category:_selCat});
   } else {
-    S.expenses.push({id:uid(),title,amount,category:_selCat,date,note,isRecurring:isRec,recurringSourceId:null});
+    S.expenses.push({id:uid(),title,amount,category:_selCat,date,note,isRecurring:isRec,isYearly:isYearly,recurringSourceId:null});
   }
 
   saveE(); closeModal(); render();
@@ -718,9 +746,9 @@ function delExp(id) {
 }
 
 function stopRec(id) {
-  if (!confirm('Stop this expense from repeating in future months?')) return;
+  if (!confirm('Stop this expense from repeating?')) return;
   const e = S.expenses.find(x=>x.id===id);
-  if (e) { e.isRecurring=false; saveE(); render(); }
+  if (e) { e.isRecurring=false; e.isYearly=false; saveE(); render(); }
 }
 
 function setBudget(cid,val) {
